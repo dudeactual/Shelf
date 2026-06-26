@@ -1,0 +1,33 @@
+name: Release Shelf
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    name: Build downloadable macOS app
+    runs-on: macos-15
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Build zip and DMG
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}" ./script/package_release.sh
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            releases/Shelf-*.zip
+            releases/Shelf-*.dmg
+          body: |
+            Download Shelf for macOS.
+
+            Note: this free build is ad-hoc signed, not Apple-notarized. If macOS warns that the developer cannot be verified, right-click Shelf and choose Open.

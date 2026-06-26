@@ -1,0 +1,7 @@
+.build/
+.build15/
+dist/
+releases/
+work/
+outputs/
+.DS_Store
