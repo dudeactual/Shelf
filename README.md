@@ -11,10 +11,8 @@ Shelf is intended to be distributed for free through GitHub Releases.
 Latest release URL:
 
 ```text
-https://github.com/YOUR_GITHUB_USERNAME/Shelf/releases/latest
+https://github.com/dudeactual/Shelf/releases/latest
 ```
-
-Replace `YOUR_GITHUB_USERNAME` with the actual GitHub owner after the repo is created.
 
 ## Important macOS warning
 
